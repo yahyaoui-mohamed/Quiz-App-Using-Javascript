@@ -1,0 +1,106 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600&display=swap');
+
+*{
+  box-sizing: border-box;
+  margin:0;
+}
+
+/* background-color: #a4b0be; : Color for each item */
+body{
+  
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  height:100vh;
+}
+
+#app{
+  width:900px;
+  height:550px;
+  background-color: #f1f2f6;
+  border-radius:5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding:10px;
+}
+
+.title{
+  text-align:center;
+  padding:10px;
+  margin-bottom:20px;
+  font-family: Bebas Neue;
+}
+
+.title h1{
+  letter-spacing: 3px;
+}
+
+.title .question-number{
+  float:left;
+  background-color: #fff;
+  padding:5px 8px;
+  border-radius:5px;
+  font-size:18px;
+}
+
+.question-group{
+  margin: 20px 0;
+  font-size:20px;
+  font-weight:bold;
+  border-bottom:1px solid #ccc;
+  padding: 20px 10px;
+  font-family: Dosis;
+}
+
+.question-group label{
+  cursor: pointer;
+}
+
+.submit{
+  text-align:center;
+  margin:30px 0;
+}
+
+.submit button{
+  border:none;
+  font-size:18px;
+  margin: 0 20px;
+  cursor: pointer;
+  padding:10px 60px;
+  color:#fff;
+  font-family: Dosis;
+  border-radius:50px;
+  font-weight:600;
+}
+
+.submit button.next{
+background: #1e90ff;
+}
+
+  .question-progress{
+    display: flex;
+    justify-content:space-between;
+  }
+  
+  .question-progress ul{
+    margin:0;
+    padding:0;
+  }
+
+  .question-progress ul li{
+    display:inline-block;
+    width:20px;
+    height:20px;
+    background-color: #ccc;
+    margin-right:15px;
+    border-radius:50px;
+  }
+
+  .question-progress ul li.finished{
+    background-color: #1e90ff;
+  }
+
+  .timer{
+    font-family: Dosis;
+  }

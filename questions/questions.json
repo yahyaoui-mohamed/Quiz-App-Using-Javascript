@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "What is JavaScript?",
+    "answer_1": "Backend Language",
+    "answer_2": "Frontend Language",
+    "answer_3": "Both backend and frontend language",
+    "answer_4": "Markup language",
+    "right_answer": "Both backend and frontend language"
+  },
+  {
+    "id": 2,
+    "title": "How to declare a viariable JavaScript?",
+    "answer_1": "var",
+    "answer_2": "let",
+    "answer_3": "const",
+    "answer_4": "int",
+    "right_answer": "both 1, 2, and 3 are correct"
+  },
+  {
+    "id": 3,
+    "title": "How to get an element id called app?",
+    "answer_1": "document.getElementByid('app')",
+    "answer_2": "getElementById('app)'",
+    "answer_3": "document.id('app')",
+    "answer_4": "id('app')",
+    "right_answer": "document.getElementByid('app')"
+  }
+]
