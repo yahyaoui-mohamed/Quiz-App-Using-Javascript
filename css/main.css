@@ -23,6 +23,7 @@ body{
   border-radius:5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   padding:10px;
+  position: relative;
 }
 
 .title{
@@ -103,4 +104,20 @@ background: #1e90ff;
 
   .timer{
     font-family: Dosis;
+  }
+
+  .score{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    font-family: Bebas Neue;
+  }
+
+  .score .failed{
+    color:red;
+  }
+
+  .score .success{
+    color:green;
   }

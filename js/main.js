@@ -1,32 +1,58 @@
 let app = document.getElementById("app");
 let count = 0;
+let rightAnswer = 0;
 let x = fetch('./questions/questions.json').then(res => res.json()).then(res => {
   render(res, count);
 });
 
 function startCounter(res, count) {
+  console.log("Counter Starts...");
   let time = +document.querySelector(".timer").innerText.substr(3);
   let interval = setInterval(function () {
     if (time === 0) {
+      let selected = document.querySelector(".question-group input:checked + label");
+      if (selected) {
+        if (selected.innerHTML === res[count].right_answer) {
+          rightAnswer++;
+        }
+      }
       clearInterval(interval);
       render(res, ++count);
       return;
     }
+    let timer = document.querySelector(".timer");
+    console.log(timer);
     if (time <= 10) {
-      document.querySelector(".timer").innerText = "00:" + "0" + --time;
-      document.querySelector(".timer").style.color = "red";
+      timer.innerText = "00:" + "0" + --time;
+      timer.style.color = "red";
     }
     else {
-      document.querySelector(".timer").innerText = "00:" + --time;
+      timer.innerText = "00:" + --time;
     }
   }, 1000);
   let next = document.querySelector(".next");
   next.onclick = function () {
+    clearInterval(interval);
+    let selected = document.querySelector(".question-group input:checked + label");
+    if (selected) {
+      if (selected.innerHTML === res[count].right_answer) {
+        rightAnswer++;
+      }
+    }
     render(res, ++count);
   }
 }
 
 function render(res, count) {
+  if (res[count] === res[res.length]) {
+    let structure = `
+    <div class="score">
+      <h1 class="${rightAnswer < 6 ? "failed" : "success"}">You score is ${rightAnswer} / ${res.length}</h1>
+    </div>
+    `;
+    app.innerHTML = structure;
+    return;
+  }
   let structure =
     `
   <div class="title">
@@ -71,10 +97,10 @@ function render(res, count) {
 </div>
 `
   app.innerHTML = structure;
+  console.log("Rendered.");
+  startCounter(res, count);
   let progress = document.querySelectorAll(" ul li");
-  console.log(progress);
   for (let i = 0; i <= count; ++i) {
     progress[i].classList.add("finished");
   }
-  startCounter(res, count);
 }
